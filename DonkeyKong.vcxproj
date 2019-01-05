@@ -77,8 +77,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath);D:\Dev\SFML\SFML-2.5.1\Include</IncludePath>
-    <LibraryPath>$(LibraryPath);D:\Dev\SFML\SFML-2.5.1\Lib</LibraryPath>
+    <IncludePath>$(IncludePath);C:\Dev\Cpp\DonkeyKong\sfml\include</IncludePath>
+    <LibraryPath>$(LibraryPath);C:\Dev\Cpp\DonkeyKong\sfml\lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -155,17 +155,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CBlock.h" />
+    <ClInclude Include="CEnnemy.h" />
+    <ClInclude Include="CGoal.h" />
+    <ClInclude Include="CHero.h" />
+    <ClInclude Include="CLadder.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="CPlatform.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityManager.h" />
+    <ClInclude Include="EntityType.h" />
+    <ClInclude Include="EOrientation.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="ICharacter.h" />
+    <ClInclude Include="IElement.h" />
+    <ClInclude Include="IMovable.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StringHelpers.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CBlock.cpp" />
+    <ClCompile Include="CEnnemy.cpp" />
+    <ClCompile Include="CGoal.cpp" />
+    <ClCompile Include="CHero.cpp" />
+    <ClCompile Include="CLadder.cpp" />
+    <ClCompile Include="Constants.cpp" />
+    <ClCompile Include="CPlatform.cpp" />
     <ClCompile Include="DonkeyKong.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="ICharacter.cpp" />
+    <ClCompile Include="IElement.cpp" />
+    <ClCompile Include="IMovable.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -3,7 +3,7 @@
 #include "Game.h"
 #include "EntityManager.h"
 
-const float Game::PlayerSpeed = 100.f;
+const float Game::PlayerSpeed = 400.f;
 const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
 
 Game::Game()
@@ -20,6 +20,7 @@ Game::Game()
 	, mIsMovingLeft(false)
 {
 	mWindow.setFramerateLimit(160);
+
 
 	// Draw blocks
 
@@ -61,12 +62,17 @@ Game::Game()
 
 	// Draw Mario
 
-	mTexture.loadFromFile("Media/Textures/Mario_small_transparent.png"); // Mario_small.png");
+	//mTexture.loadFromFile("Media/Textures/Mario_small_transparent.png"); // Mario_small.png");
+	mTexture.loadFromFile("Media/Textures/kim.png");
+	sf::IntRect kimRect(6, 28 , 32, 64);
+
+	mPlayer.setTexture(mTexture);
+	mPlayer.setTextureRect(kimRect);
 	_sizeMario = mTexture.getSize();
 	mPlayer.setTexture(mTexture);
 	sf::Vector2f posMario;
-	posMario.x = 100.f + 70.f;
-	posMario.y = BLOCK_SPACE * 5 - _sizeMario.y;
+	//posMario.x = 100.f + 70.f;
+	//posMario.y = BLOCK_SPACE * 5 - _sizeMario.y;
 
 	mPlayer.setPosition(posMario);
 
@@ -76,6 +82,11 @@ Game::Game()
 	player->m_size = mTexture.getSize();
 	player->m_position = mPlayer.getPosition();
 	EntityManager::m_Entities.push_back(player);
+
+
+	//sf::Sprite sprite(mTexture, kimRect);
+	
+	
 
 	// Draw Statistic Font 
 
@@ -208,6 +219,7 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed)
 		mIsMovingDown = isPressed;
 	else if (key == sf::Keyboard::Left)
 		mIsMovingLeft = isPressed;
+
 	else if (key == sf::Keyboard::Right)
 		mIsMovingRight = isPressed;
 

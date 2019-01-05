@@ -1,11 +1,9 @@
+#include "pch.h"
+#include "EntityType.h"
 #pragma once
 
-enum EntityType
-{
-	player,
-	block,
-	echelle
-};
+
+
 
 class Entity
 {
@@ -23,5 +21,10 @@ public:
 	// Enemy only
 	bool m_bLeftToRight = true;
 	int m_times = 0;
+
+public:
+	virtual int Draw() {
+		return 0;
+	};
 };
 
