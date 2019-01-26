@@ -1,30 +1,37 @@
-#include "pch.h"
-#include "EntityType.h"
 #pragma once
 
+#include "pch.h"
+#include "EntityType.h"
 
-
-
-class Entity
-{
-public:
-	Entity() { };
-	~Entity() { };
+class Entity {
 
 public:
-	sf::Sprite m_sprite;
-	sf::Vector2u m_size;
-	sf::Vector2f m_position;
-	EntityType m_type;
-	bool m_enabled = true;
+	Entity(std::string spriteSheet, float x, float y);
+	~Entity();
+
+public:	
+	sf::Image _image;
+	sf::Texture _texture;
+	sf::Sprite _sprite;
+	bool _displayed = true;
+	EntityType _type;
+	
 
 	// Enemy only
-	bool m_bLeftToRight = true;
-	int m_times = 0;
+	//bool m_bLeftToRight = true;
+	//int m_times = 0;
 
 public:
-	virtual int Draw() {
+	/*virtual int Draw() {
 		return 0;
-	};
+	};*/
+
+	sf::Vector2u GetSize() {
+		return _sprite.getTexture()->getSize();
+	}
+
+	sf::Vector2f GetPosition() {
+		return _sprite.getPosition();
+	}
 };
 

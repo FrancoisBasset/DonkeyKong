@@ -27,22 +27,10 @@
     <ClInclude Include="EntityManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IMovable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EOrientation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CHero.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EntityType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CEnnemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ICharacter.h">
@@ -60,10 +48,22 @@
     <ClInclude Include="CLadder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CBlock.h">
+    <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Constants.h">
+    <ClInclude Include="Orientation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Movable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Block.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ennemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -86,15 +86,6 @@
     <ClCompile Include="EntityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IMovable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CHero.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CEnnemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ICharacter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -110,11 +101,20 @@
     <ClCompile Include="CLadder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CBlock.cpp">
+    <ClCompile Include="Movable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Constants.cpp">
+    <ClCompile Include="Block.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ennemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

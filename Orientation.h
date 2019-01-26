@@ -1,5 +1,5 @@
 #pragma once
-enum EOrientation
+enum Orientation
 {
 	LEFT,
 	RIGHT,

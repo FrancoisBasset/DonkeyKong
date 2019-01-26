@@ -16,12 +16,12 @@ std::shared_ptr<Entity> EntityManager::GetPlayer()
 {
 	for (std::shared_ptr<Entity> entity : EntityManager::m_Entities)
 	{
-		if (entity->m_enabled == false)
+		if (entity->_displayed == false)
 		{
 			continue;
 		}
 
-		if (entity->m_type == EntityType::player)
+		if (entity->_type == EntityType::PLAYER)
 		{
 			return entity;
 		}

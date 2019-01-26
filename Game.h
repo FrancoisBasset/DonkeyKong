@@ -1,15 +1,15 @@
 #pragma once
 
-#define ECHELLE_COUNT 4
-#define BLOCK_COUNT_X 8
-#define BLOCK_COUNT_Y 5
-#define BLOCK_SPACE 110.f
+#include "Constants.h"
+#include "Player.h"
+#include "Block.h"
 
 class Game
 {
+
 public:
 	Game();
-	~Game() { };
+	~Game();
 	void run();
 
 private:
@@ -21,29 +21,27 @@ private:
 	void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
 
 private:
-	static const float		PlayerSpeed;
-	static const sf::Time	TimePerFrame;
+	sf::RenderWindow	_renderWindow;
 
-	sf::RenderWindow		mWindow;
-	sf::Texture	mTexture;
-	sf::Sprite	mPlayer;
-	sf::Font	mFont;
-	sf::Text	mStatisticsText;
-	sf::Time	mStatisticsUpdateTime;
+	std::shared_ptr<Player> _player;
 
-	std::size_t	mStatisticsNumFrames;
+	sf::Font	_font;
+	sf::Text	_statisticsText;
+	sf::Time	_statisticsUpdateTime;
+
+	std::size_t	_statisticsNumFrames;
 	bool mIsMovingUp;
 	bool mIsMovingDown;
 	bool mIsMovingRight;
 	bool mIsMovingLeft;
 
-	sf::Texture	_TextureEchelle;
-	sf::Sprite	_Echelle[ECHELLE_COUNT];
-	sf::Texture	_TextureBlock;
-	sf::Sprite	_Block[BLOCK_COUNT_X][BLOCK_COUNT_Y];
-	sf::Texture	_TextureWeapon;
-	sf::Sprite	_Weapon;
-	sf::Vector2u _sizeBlock;
-	sf::Vector2u _sizeMario;
+	sf::Texture	_ladderTexture;
+	sf::Sprite	_ladders[Constants::LADDER_COUNT];
+
+	//sf::Texture	_blockTexture;
+	sf::Sprite	_blocks[Constants::BLOCK_COUNT_X][Constants::BLOCK_COUNT_Y];
+
+	sf::Texture	_weaponTexture;
+	sf::Sprite	_weapon;
 };
 

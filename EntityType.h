@@ -1,7 +1,8 @@
 #pragma once
 enum EntityType
 {
-	player,
-	block,
-	echelle
+	PLAYER,
+	BLOCK,
+	LADDER,
+	ENEMY
 };

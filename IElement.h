@@ -1,6 +1,6 @@
 #pragma once
 #include "Entity.h"
-class IElement : Entity
+class IElement /*: Entity*/
 {
 public:
 	IElement();
