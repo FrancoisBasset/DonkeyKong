@@ -3,6 +3,8 @@
 #include "Constants.h"
 #include "Player.h"
 #include "Block.h"
+#include "Ladder.h"
+#include "EntityManager.h"
 
 class Game
 {
@@ -10,35 +12,38 @@ class Game
 public:
 	Game();
 	~Game();
-	void run();
+	void Run();
 
 private:
-	void processEvents();
-	void update(sf::Time elapsedTime);
-	void render();
+	void ProcessEvents();
+	//void update(sf::Time elapsedTime);
+	
+	void Render();
 
-	void updateStatistics(sf::Time elapsedTime);
-	void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
+	void UpdateStatistics(sf::Time elapsedTime);
+	void HandlePlayerInput(sf::Keyboard::Key key);
 
 private:
 	sf::RenderWindow	_renderWindow;
 
-	std::shared_ptr<Player> _player;
+	//std::shared_ptr<Player> _player;
+
+	EntityManager _entityManager;
 
 	sf::Font	_font;
 	sf::Text	_statisticsText;
 	sf::Time	_statisticsUpdateTime;
 
 	std::size_t	_statisticsNumFrames;
-	bool mIsMovingUp;
+	/*bool mIsMovingUp;
 	bool mIsMovingDown;
 	bool mIsMovingRight;
-	bool mIsMovingLeft;
+	bool mIsMovingLeft;*/
 
 	sf::Texture	_ladderTexture;
 	sf::Sprite	_ladders[Constants::LADDER_COUNT];
 
-	//sf::Texture	_blockTexture;
+	//sf::Vector2u blockSize;
 	sf::Sprite	_blocks[Constants::BLOCK_COUNT_X][Constants::BLOCK_COUNT_Y];
 
 	sf::Texture	_weaponTexture;

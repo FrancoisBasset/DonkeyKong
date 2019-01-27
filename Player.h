@@ -3,7 +3,7 @@
 #include "Movable.h"
 #include "Constants.h"
 
-class Player : public Entity/*, Movable*/
+class Player : public Movable
 {
 	
 public:
@@ -11,23 +11,10 @@ public:
 	~Player();
 
 private:
-	int _ammoLeft = 0;
+	int _ammoCount = 0;
 
 public:
-	void AddAmmo();
-	void RemoveAmmo();
-
-public:	
-
-	/*void moveRight() {
-		this->movement.x = this->movement.x += moveSpeed;
-		this->movement.y = this->movement.y += moveSpeed;
-
-		_spriteMode.left += Constants::SPRITE_WIDTH;
-
-	};*/
+	void AddOneAmmo();
+	void RemoveOneAmmo();
 
 };
-
-
-

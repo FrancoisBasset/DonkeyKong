@@ -2,19 +2,16 @@
 #include "Entity.h"
 #include "Orientation.h"
 
-class Movable
+#include "Constants.h"
+
+class Movable : public Entity
 {
 
 public:
-	Movable();
+	Movable(std::string spriteSheet, float x, float y);
 	~Movable();
 
 public:
-	Orientation _orientation;
-	int moveSpeed;
-	sf::Vector2f movement;
-
-public:
-	virtual void move(Orientation orientation) = 0;
+	void move(Orientation orientation);
 
 };

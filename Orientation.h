@@ -3,6 +3,7 @@ enum Orientation
 {
 	LEFT,
 	RIGHT,
-	UP
+	UP,
+	DOWN
 };
 

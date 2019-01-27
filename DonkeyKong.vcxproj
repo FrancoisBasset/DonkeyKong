@@ -160,6 +160,7 @@
     <ClInclude Include="Block.h" />
     <ClInclude Include="Ennemy.h" />
     <ClInclude Include="CGoal.h" />
+    <ClInclude Include="Ladder.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="CLadder.h" />
     <ClInclude Include="Constants.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Ennemy.cpp" />
     <ClCompile Include="CGoal.cpp" />
+    <ClCompile Include="Ladder.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="CLadder.cpp" />
     <ClCompile Include="CPlatform.cpp" />

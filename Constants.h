@@ -9,8 +9,8 @@ public:
 	static const int SPRITE_TOP = 28;
 
 	static const int LADDER_COUNT = 4;
-	static const int BLOCK_COUNT_X = 12;
-	static const int BLOCK_COUNT_Y = 5;
+	static const int BLOCK_COUNT_X = 5;
+	static const int BLOCK_COUNT_Y = 12;
 
 public:
 	static const float BLOCK_SPACE() {

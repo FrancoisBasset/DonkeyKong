@@ -1,25 +1,25 @@
 #include "pch.h"
 #include "Player.h"
 
-Player::Player(float x, float y) : Entity(Constants::PLAYER_SPRITESHEET(), x, y)
+Player::Player(float x, float y) : Movable(Constants::PLAYER_SPRITESHEET(), x, y)
 {
 	_sprite.setTextureRect(sf::IntRect(Constants::SPRITE_LEFT, Constants::SPRITE_TOP, Constants::SPRITE_WIDTH, Constants::SPRITE_LENGTH));
 	_type = EntityType::PLAYER;
 }
 
 Player::~Player() {
-
+	
 }
 
-void Player::AddAmmo()
+void Player::AddOneAmmo()
 {
-	 _ammoLeft++;
+	 _ammoCount++;
 }
 
-void Player::RemoveAmmo()
+void Player::RemoveOneAmmo()
 {
-	if (_ammoLeft != 0) {
-		_ammoLeft--;
+	if (_ammoCount != 0) {
+		_ammoCount--;
 	}
 }
 
