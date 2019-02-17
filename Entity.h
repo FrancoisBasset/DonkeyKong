@@ -21,13 +21,15 @@ protected:
 	//int m_times = 0;
 
 public:
-	sf::Sprite GetSprite() {
-		return _sprite;
-	}
+	void SetUndisplayed();
 
 	bool IsDisplayed() {
 		return _displayed;
 	}
+
+	sf::Sprite GetSprite() {
+		return _sprite;
+	}	
 
 	sf::Vector2u GetSize() {
 		return _sprite.getTexture()->getSize();
@@ -36,5 +38,8 @@ public:
 	sf::Vector2f GetPosition() {
 		return _sprite.getPosition();
 	}
-};
 
+	/*float GetFoot() {
+		return GetPosition().y + GetSize().y;
+	}*/
+};

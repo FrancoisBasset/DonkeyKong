@@ -1,7 +1,8 @@
 #pragma once
-#include "IElement.h"
 
-class Block : public Entity /*: public IElement*/
+#include "Entity.h"
+
+class Block : public Entity
 {
 
 public:

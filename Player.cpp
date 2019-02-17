@@ -3,12 +3,34 @@
 
 Player::Player(float x, float y) : Movable(Constants::PLAYER_SPRITESHEET(), x, y)
 {
-	_sprite.setTextureRect(sf::IntRect(Constants::SPRITE_LEFT, Constants::SPRITE_TOP, Constants::SPRITE_WIDTH, Constants::SPRITE_LENGTH));
+	ProfilToRight();
 	_type = EntityType::PLAYER;
 }
 
 Player::~Player() {
 	
+}
+
+void Player::ProfilToRight() {
+	_sprite.setTextureRect(
+		sf::IntRect(
+			Constants::PLAYER_SPRITE_RIGHT_X,
+			Constants::PLAYER_SPRITE_RIGHT_Y,
+			Constants::PLAYER_SPRITE_RIGHT_WIDTH,
+			Constants::PLAYER_SPRITE_RIGHT_HEIGHT
+		)
+	);
+}
+
+void Player::ProfilToLeft() {
+	_sprite.setTextureRect(
+		sf::IntRect(
+			Constants::PLAYER_SPRITE_LEFT_X,
+			Constants::PLAYER_SPRITE_LEFT_Y,
+			Constants::PLAYER_SPRITE_LEFT_WIDTH,
+			Constants::PLAYER_SPRITE_LEFT_HEIGHT
+		)
+	);
 }
 
 void Player::AddOneAmmo()
@@ -23,21 +45,20 @@ void Player::RemoveOneAmmo()
 	}
 }
 
-/*void move(Orientation orientation) {
-	switch (orientation)
-	{
-		case LEFT:
-			break;
-		case RIGHT:
-			//moveRight();
-			break;
-		case UP:
-			break;
-		default:
-			break;
-	}
+void Player::AddOneCoin() {
+	_coins++;
 }
 
-*/
+void Player::FloorUp()
+{
+	_floor--;
+}
 
+void Player::FloorDown() {
+	_floor++;
+}
 
+int Player::GetFloor()
+{
+	return _floor;
+}

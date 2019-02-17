@@ -34,6 +34,8 @@ private:
 	sf::Text	_statisticsText;
 	sf::Time	_statisticsUpdateTime;
 
+	sf::Text	_coinsText;
+
 	std::size_t	_statisticsNumFrames;
 	/*bool mIsMovingUp;
 	bool mIsMovingDown;

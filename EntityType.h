@@ -4,5 +4,6 @@ enum EntityType
 	PLAYER,
 	BLOCK,
 	LADDER,
-	ENEMY
+	ENEMY,
+	COIN
 };
