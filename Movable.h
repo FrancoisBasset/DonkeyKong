@@ -1,7 +1,7 @@
 #include "pch.h"
+
 #include "Entity.h"
 #include "Orientation.h"
-
 #include "Constants.h"
 #include "Block.h"
 
@@ -9,7 +9,7 @@ class Movable : public Entity
 {
 
 public:
-	Movable(std::string spriteSheet, float x, float y);
+	Movable(std::string spriteSheet, float x, float y, sf::Color color);
 	~Movable();
 
 public:

@@ -10,6 +10,4 @@ public:
 	Coin(std::shared_ptr<Block> block);
 	~Coin();
 
-	void PlaceCoinAtBlock(std::shared_ptr<Block> block);
 };
-

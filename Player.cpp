@@ -1,36 +1,24 @@
 #include "pch.h"
 #include "Player.h"
 
-Player::Player(float x, float y) : Movable(Constants::PLAYER_SPRITESHEET(), x, y)
+Player::Player(float x, float y) : Movable("Media/Textures/Winnie.png", x, y, sf::Color(173, 214, 214, 255))
 {
 	ProfilToRight();
 	_type = EntityType::PLAYER;
 }
 
-Player::~Player() {
-	
+Player::~Player() {}
+
+void Player::ProfilToRight()
+{
+	_profil = Orientation::RIGHT;
+	_sprite.setTextureRect(sf::IntRect(0, 248, 18, 40));
 }
 
-void Player::ProfilToRight() {
-	_sprite.setTextureRect(
-		sf::IntRect(
-			Constants::PLAYER_SPRITE_RIGHT_X,
-			Constants::PLAYER_SPRITE_RIGHT_Y,
-			Constants::PLAYER_SPRITE_RIGHT_WIDTH,
-			Constants::PLAYER_SPRITE_RIGHT_HEIGHT
-		)
-	);
-}
-
-void Player::ProfilToLeft() {
-	_sprite.setTextureRect(
-		sf::IntRect(
-			Constants::PLAYER_SPRITE_LEFT_X,
-			Constants::PLAYER_SPRITE_LEFT_Y,
-			Constants::PLAYER_SPRITE_LEFT_WIDTH,
-			Constants::PLAYER_SPRITE_LEFT_HEIGHT
-		)
-	);
+void Player::ProfilToLeft()
+{
+	_profil = Orientation::LEFT;
+	_sprite.setTextureRect(sf::IntRect(0, 164, 18, 40));
 }
 
 void Player::AddOneAmmo()
@@ -40,12 +28,14 @@ void Player::AddOneAmmo()
 
 void Player::RemoveOneAmmo()
 {
-	if (_ammoCount != 0) {
+	if (_ammoCount != 0)
+	{
 		_ammoCount--;
 	}
 }
 
-void Player::AddOneCoin() {
+void Player::AddOneCoin()
+{
 	_coins++;
 }
 
@@ -54,7 +44,8 @@ void Player::FloorUp()
 	_floor--;
 }
 
-void Player::FloorDown() {
+void Player::FloorDown()
+{
 	_floor++;
 }
 

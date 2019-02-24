@@ -9,4 +9,3 @@ public:
 	Ladder(float x, float y);
 	~Ladder();
 };
-

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Entity.h"
 #include "Movable.h"
 #include "Constants.h"
@@ -14,6 +15,7 @@ private:
 	int _coins = 0;
 	int _ammoCount = 0;
 	int _floor = 4;
+	Orientation _profil;
 
 public:
 	void AddOneAmmo();
@@ -28,15 +30,18 @@ public:
 	void FloorDown();
 	int GetFloor();
 
-	sf::Vector2u GetSize() {
-		return sf::Vector2u(this->GetSprite().getTextureRect().width, this->GetSprite().getTextureRect().height);
-	}
-
-	float GetFoot() {
+	float GetFoot()
+	{
 		return GetPosition().y + GetSize().y;
 	}
 
-	int GetCoins() {
+	int GetCoins()
+	{
 		return _coins;
+	}
+
+	Orientation GetProfil()
+	{
+		return _profil;
 	}
 };

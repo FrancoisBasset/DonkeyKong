@@ -1,29 +1,33 @@
 #include "pch.h"
 #include "Movable.h"
 
-Movable::Movable(std::string spriteSheet, float x, float y) : Entity(spriteSheet, x, y) {}
+Movable::Movable(std::string spriteSheet, float x, float y, sf::Color color) : Entity(spriteSheet, x, y, color) {}
 
 Movable::~Movable() {}
 
-void Movable::Move(Orientation orientation) {
+void Movable::Move(Orientation orientation)
+{
 	_sprite.move(GetMovement(orientation));
 }
 
-sf::Vector2f Movable::GetMovement(Orientation orientation) {
+sf::Vector2f Movable::GetMovement(Orientation orientation)
+{
 	sf::Vector2f movement(0.f, 0.f);
 
-	switch (orientation) {
+	//400.f player_speed
+	switch (orientation)
+	{
 		case Orientation::LEFT:
-			movement.x -= Constants::PLAYER_SPEED();
+			movement.x -= 400.f;
 			break;
 		case Orientation::RIGHT:
-			movement.x += Constants::PLAYER_SPEED();
+			movement.x += 400.f;
 			break;
 		case Orientation::UP:
-			movement.y -= Constants::PLAYER_SPEED();
+			movement.y -= 400.f;
 			break;
 		case Orientation::DOWN:
-			movement.y += Constants::PLAYER_SPEED();
+			movement.y += 400.f;
 			break;
 	}
 
@@ -34,13 +38,15 @@ sf::Vector2f Movable::GetMovement(Orientation orientation) {
 	return floorMovement;
 }
 
-void Movable::PlaceAtBlock(std::shared_ptr<Block> block, Orientation orientation) {
+void Movable::PlaceAtBlock(std::shared_ptr<Block> block, Orientation orientation)
+{
 	float playerY = this->GetPosition().y + this->GetSprite().getTextureRect().height;
 	float blockY = block->GetPosition().y;
 
 	float diffY = fabsf(playerY - blockY);
 
-	if (orientation == Orientation::DOWN) {
+	if (orientation == Orientation::DOWN)
+	{
 		diffY = -diffY;
 	}
 

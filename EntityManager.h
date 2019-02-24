@@ -4,9 +4,12 @@
 #include "Block.h"
 #include "Ladder.h"
 #include "Coin.h"
+#include "Goal.h"
+#include "Enemy.h"
 
 class EntityManager
 {
+
 public:
 	EntityManager();
 	~EntityManager();
@@ -16,6 +19,10 @@ private:
 	std::vector<std::vector<std::shared_ptr<Block>>> _blocks;
 	std::vector<std::shared_ptr<Ladder>> _ladders;
 	std::vector<std::shared_ptr<Coin>> _coins;
+	std::shared_ptr<Goal> _goal;
+	std::vector<std::shared_ptr<Enemy>> _enemies;
+
+	bool _win = false;
 
 public:
 	bool CheckCollisionsWithLeftWall();
@@ -30,24 +37,48 @@ public:
 
 	void HandleCollisionsWithCoins();
 
+	void CheckCollisionsWithGoal();
+
+	void CheckCollisionsWithEnemy();
+
+	void Attack();
+
 	float GetUpperBlockY();
 	float GetCurrentBlockY();
 	float GetLowerBlockY();
 
-	std::shared_ptr<Player> GetPlayer() {
+	std::shared_ptr<Player> GetPlayer()
+	{
 		return _player;
 	}
 
-	std::vector<std::vector<std::shared_ptr<Block>>> GetBlocks() {
+	std::vector<std::vector<std::shared_ptr<Block>>> GetBlocks()
+	{
 		return _blocks;
 	}
 
-	std::vector<std::shared_ptr<Ladder>> GetLadders() {
+	std::vector<std::shared_ptr<Ladder>> GetLadders()
+	{
 		return _ladders;
 	}
 
-	std::vector<std::shared_ptr<Coin>> GetCoins() {
+	std::vector<std::shared_ptr<Coin>> GetCoins()
+	{
 		return _coins;
 	}
 
+	std::shared_ptr<Goal> GetGoal()
+	{
+		return _goal;
+	}
+
+	std::vector<std::shared_ptr<Enemy>> GetEnemies()
+	{
+		return _enemies;
+	}
+
+	bool Win()
+	{
+		return _win;
+	}
 };

@@ -3,17 +3,10 @@
 #include "Constants.h"
 #include "Coin.h"
 
-Coin::Coin(std::shared_ptr<Block> block) : Entity(Constants::COIN_SPRITESHEET(), 0, 0)
+Coin::Coin(std::shared_ptr<Block> block) : Entity("Media/Textures/Coin.png", 0, 0, sf::Color::Black)
 {
-	PlaceCoinAtBlock(block);
+	PlaceAtBlock(block);
 	_type = EntityType::COIN;
 }
 
 Coin::~Coin() {}
-
-void Coin::PlaceCoinAtBlock(std::shared_ptr<Block> block) {
-	float x = block->GetPosition().x;
-	float y = block->GetPosition().y - this->GetSize().y;
-
-	_sprite.move(sf::Vector2f(x, y));
-}

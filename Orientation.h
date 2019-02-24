@@ -1,4 +1,5 @@
 #pragma once
+
 enum Orientation
 {
 	LEFT,
@@ -6,4 +7,3 @@ enum Orientation
 	UP,
 	DOWN
 };
-
