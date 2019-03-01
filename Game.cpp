@@ -188,6 +188,7 @@ void Game::HandlePlayerInput(sf::Keyboard::Key key)
 	else if (key == sf::Keyboard::Left)
 	{
 		_entityManager.GetPlayer()->ProfilToLeft();
+		_entityManager.GetPlayer()->AnimationUpdate();
 
 		if (!_entityManager.CheckCollisionsWithLeftWall())
 		{

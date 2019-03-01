@@ -55,27 +55,39 @@ int Player::GetFloor()
 }
 
 void Player::AnimationUpdate() {
-	/*std::vector<std::vector<int>> tab;
-
-	switch (_profil) {
-		case Orientation::LEFT:
-			tab = _lefts;
-			break;
-	}*/
-
 	if (_rect == _rights.size())
 	{
 		_rect = 0;
 	}
 
-	_sprite.setTextureRect(
-		sf::IntRect(
-			_rights[_rect][0],
-			_rights[_rect][1],
-			_rights[_rect][2],
-			_rights[_rect][3]
-		)
-	);
+	switch (_profil) {
+		case Orientation::RIGHT:
+			_sprite.setTextureRect(
+				sf::IntRect(
+					_rights[_rect][0],
+					_rights[_rect][1],
+					_rights[_rect][2],
+					_rights[_rect][3]
+				)
+			);
+
+			break;
+		case Orientation::LEFT:
+			_sprite.setTextureRect(
+				sf::IntRect(
+					_lefts[_rect][0],
+					_lefts[_rect][1],
+					_lefts[_rect][2],
+					_lefts[_rect][3]
+				)
+			);
+
+			break;
+	}
+
+	
+
+	
 
 	_rect++;
 }
