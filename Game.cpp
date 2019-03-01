@@ -14,6 +14,12 @@ Game::Game()
 {
 	_renderWindow.setFramerateLimit(160);
 
+	sf::Image icon;
+
+	icon.loadFromFile("Media/Textures/icon.png");
+
+	_renderWindow.setIcon(30, 32, icon.getPixelsPtr());
+
 	_font.loadFromFile("Media/Sansation.ttf");
 
 	_timeText.setFont(_font);
@@ -160,11 +166,6 @@ void Game::UpdateText(sf::Time elapsedTime)
 
 void Game::HandlePlayerInput(sf::Keyboard::Key key)
 {
-	//_entityManager.CheckCollisionsWithUpperLadder();
-	//_entityManager.CheckCollisionsWithLowerLadder();
-
-	
-
 	if (key == sf::Keyboard::Up)
 	{
 		if (_entityManager.CheckCollisionsWithUpperLadder())

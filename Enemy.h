@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Block.h"
-//#include "Movable.h"
 
 class Enemy : public Entity
 {
