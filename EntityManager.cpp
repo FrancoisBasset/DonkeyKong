@@ -111,11 +111,6 @@ bool EntityManager::CheckCollisionsWithUpperLadder()
 	float ladderX = _ladders[_player->GetFloor() - 1]->GetPosition().x;
 	float diffX = fabsf(_player->GetPosition().x - ladderX);
 
-	if (diffX <= 10)
-	{
-		std::cout << "Upper ladder" << std::endl;
-	}
-
 	return diffX <= 10;
 }
 
@@ -128,11 +123,6 @@ bool EntityManager::CheckCollisionsWithLowerLadder()
 
 	float ladderX = _ladders[_player->GetFloor()]->GetPosition().x;
 	float diffX = fabsf(_player->GetPosition().x - ladderX);
-
-	if (diffX <= 10)
-	{
-		std::cout << "Lower ladder" << std::endl;
-	}
 
 	return diffX <= 10;
 }
@@ -169,7 +159,6 @@ bool EntityManager::CheckCollisionsWithLowerFloor()
 {
 	if (_player->GetFoot() >= this->GetLowerBlockY())
 	{
-		std::cout << "Floor down" << std::endl;
 		_player->FloorDown();
 		_player->PlaceAtBlock(_blocks[_player->GetFloor()][0], Orientation::DOWN);
 
@@ -223,8 +212,6 @@ void EntityManager::HandleCollisionsWithCoins()
 			{
 				_player->AddOneCoin();
 				coin->SetUndisplayed();
-
-				std::cout << _player->GetCoins() << std::endl;
 			}
 		}
 	}
@@ -265,7 +252,7 @@ void EntityManager::CheckCollisionsWithEnemy()
 		if (enemy->IsDisplayed() && playerX > enemyX && playerX < enemyX2 && diffY <= 10)
 		{
 			_player->SetUndisplayed();
-			_win = true;
+			_killed = true;
 			return;
 		}
 	}

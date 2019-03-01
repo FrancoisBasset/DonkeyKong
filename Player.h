@@ -17,6 +17,15 @@ private:
 	int _floor = 4;
 	Orientation _profil;
 
+	int _rect = 0;
+
+	std::vector<std::vector<int>> _rights = {
+		{3, 293, 16, 38},
+		{22, 293, 19, 37},
+		{44, 294, 23, 37},
+		{70, 294, 19, 37}
+	};
+
 public:
 	void AddOneAmmo();
 	void RemoveOneAmmo();
@@ -44,4 +53,6 @@ public:
 	{
 		return _profil;
 	}
+
+	void AnimationUpdate();
 };

@@ -18,16 +18,16 @@ sf::Vector2f Movable::GetMovement(Orientation orientation)
 	switch (orientation)
 	{
 		case Orientation::LEFT:
-			movement.x -= 400.f;
+			movement.x -= 500.f;
 			break;
 		case Orientation::RIGHT:
-			movement.x += 400.f;
+			movement.x += 500.f;
 			break;
 		case Orientation::UP:
-			movement.y -= 400.f;
+			movement.y -= 500.f;
 			break;
 		case Orientation::DOWN:
-			movement.y += 400.f;
+			movement.y += 500.f;
 			break;
 	}
 

@@ -32,4 +32,14 @@ private:
 
 	sf::Text _coinsText;
 	sf::Text _timeText;
+
+	sf::Text _endText;
+
+	bool _requestClose = false;
+
+public:
+	bool RequestClose() {
+		return _requestClose;
+	}
+
 };

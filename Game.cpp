@@ -9,7 +9,8 @@ Game::Game()
 	, _font()
 	, _time()
 	, _timeText()
-	, _coinsText()	
+	, _coinsText()
+	, _endText()
 {
 	_renderWindow.setFramerateLimit(160);
 
@@ -41,6 +42,42 @@ void Game::Run()
 
 		if (_entityManager.Win())
 		{
+			_endText.setFont(_font);
+			_endText.setFillColor(sf::Color::Cyan);
+
+			float score = (float) _entityManager.GetPlayer()->GetCoins() / this->_time.asSeconds() * 100;
+
+			_endText.setString("Le score est de " + toString((int) score));
+			_endText.setCharacterSize(80);
+
+			float x = Constants::WINDOW_WIDTH / 2 - (_endText.getLocalBounds().width / 2);
+			float y = Constants::WINDOW_HEIGHT / 2 - (_endText.getLocalBounds().height / 2);
+
+			_endText.setPosition(sf::Vector2f(x, y));
+
+			_renderWindow.draw(_endText);
+			_renderWindow.display();
+
+			Sleep(2000);
+			_renderWindow.close();
+		}
+
+		if (_entityManager.Killed())
+		{			
+			_endText.setFont(_font);
+			_endText.setFillColor(sf::Color::Red);
+			_endText.setString("Game over !");
+			_endText.setCharacterSize(80);
+
+			float x = Constants::WINDOW_WIDTH / 2 - (_endText.getLocalBounds().width / 2);
+			float y = Constants::WINDOW_HEIGHT / 2 - (_endText.getLocalBounds().height / 2);
+
+			_endText.setPosition(sf::Vector2f(x, y));
+
+			_renderWindow.draw(_endText);
+			_renderWindow.display();
+				
+			Sleep(2000);
 			_renderWindow.close();
 		}
 	}
@@ -58,6 +95,7 @@ void Game::ProcessEvents()
 				break;
 			case sf::Event::Closed:
 				_renderWindow.close();
+				_requestClose = true;
 				break;
 		}
 	}
@@ -106,6 +144,8 @@ void Game::Render()
 
 	_renderWindow.draw(_timeText);
 	_renderWindow.draw(_coinsText);
+
+	_renderWindow.draw(_endText);
 	
 	_renderWindow.display();
 }
@@ -120,8 +160,10 @@ void Game::UpdateText(sf::Time elapsedTime)
 
 void Game::HandlePlayerInput(sf::Keyboard::Key key)
 {
-	_entityManager.CheckCollisionsWithUpperLadder();
-	_entityManager.CheckCollisionsWithLowerLadder();
+	//_entityManager.CheckCollisionsWithUpperLadder();
+	//_entityManager.CheckCollisionsWithLowerLadder();
+
+	
 
 	if (key == sf::Keyboard::Up)
 	{
@@ -158,6 +200,7 @@ void Game::HandlePlayerInput(sf::Keyboard::Key key)
 	else if (key == sf::Keyboard::Right)
 	{
 		_entityManager.GetPlayer()->ProfilToRight();
+		_entityManager.GetPlayer()->AnimationUpdate();
 
 		if (!_entityManager.CheckCollisionsWithRightWall())
 		{

@@ -23,6 +23,7 @@ private:
 	std::vector<std::shared_ptr<Enemy>> _enemies;
 
 	bool _win = false;
+	bool _killed = false;
 
 public:
 	bool CheckCollisionsWithLeftWall();
@@ -80,5 +81,10 @@ public:
 	bool Win()
 	{
 		return _win;
+	}
+
+	bool Killed()
+	{
+		return _killed;
 	}
 };
